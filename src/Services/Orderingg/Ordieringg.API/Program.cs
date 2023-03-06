@@ -3,14 +3,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Orderingg.API.Extensions;
 using Orderingg.Infrastructure.Persistence;
+using Ordieringg.API.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Orderingg.API
+namespace Ordieringg.API
 {
     public class Program
     {

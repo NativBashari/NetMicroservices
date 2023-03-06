@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Orderingg.API
+namespace Ordieringg.API
 {
     public class Startup
     {

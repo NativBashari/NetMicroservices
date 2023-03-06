@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:34078",
+      "applicationUrl": "http://localhost:14081",
       "sslPort": 0
     }
   },
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Orderingg.API": {
+    "Ordieringg.API": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
