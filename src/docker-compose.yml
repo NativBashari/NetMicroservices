@@ -9,6 +9,9 @@ services:
 
   discountdb:
     image: postgres
+   
+  orderdb:
+    image: mcr.microsoft.com/mssql/server:latest
 
   pgadmin:
     image: dpage/pgadmin4
