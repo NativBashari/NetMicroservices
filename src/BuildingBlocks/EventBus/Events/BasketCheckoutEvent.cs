@@ -1,4 +1,4 @@
-﻿namespace EventBus.Messages.Events
+﻿namespace EventBus.Events
 {
     public class BasketCheckoutEvent: IntegrationBaseEvent
     {

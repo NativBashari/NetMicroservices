@@ -1,4 +1,6 @@
-﻿namespace EventBus.Messages.Events
+﻿using System;
+
+namespace EventBus.Events
 {
     public class IntegrationBaseEvent
     {
