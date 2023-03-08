@@ -1,3 +1,5 @@
+using EventBus.Common;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Orderingg.Application;
 using Orderingg.Infrastructure;
+using Ordieringg.API.EventBusConsumer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +37,23 @@ namespace Ordieringg.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Orderingg.API", Version = "v1" });
             });
+            services.AddMassTransit(config =>
+            {
+                config.AddConsumer<BasketCheckoutConsumer>();
+                config.UsingRabbitMq((ctx, cfg) =>
+                {
+                    cfg.Host(Configuration["EventBusSettings:HostAddress"]); // [protocol]://[username]:[password]@[servername]:[port]
+                    cfg.ReceiveEndpoint(EventBusConstants.BasketCheckoutQueue, c =>
+                    {
+                        c.ConfigureConsumer<BasketCheckoutConsumer>(ctx);
+                    });
+                });
+            });
+            ////services.AddMassTransitHostedService();
+            ///
+            //General Configurations
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<BasketCheckoutConsumer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
